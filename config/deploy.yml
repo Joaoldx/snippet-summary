@@ -40,6 +40,7 @@ registry:
 env:
   secret:
     - RAILS_MASTER_KEY
+    - BACKEND_DATABASE_PASSWORD
   clear:
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
@@ -54,6 +55,10 @@ env:
     # Match this to any external database server to configure Active Record correctly
     # Use backend-db for a db accessory server on same machine via local kamal docker network.
     # DB_HOST: 192.168.0.2
+
+    # CORS: Allowed origins for cross-origin requests (comma-separated)
+    # Example: "http://localhost:4000,https://example.com"
+    # ALLOWED_ORIGINS: "http://localhost:4000"
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug

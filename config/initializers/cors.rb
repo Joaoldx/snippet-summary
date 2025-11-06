@@ -7,7 +7,16 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins Rails.env.development? ? "*" : ENV.fetch("ALLOWED_ORIGINS", "").split(",")
+    # In development, allow all origins. In production, use ALLOWED_ORIGINS env var
+    # Split by comma and filter out empty strings
+    allowed_origins = if Rails.env.development?
+      "*"
+    else
+      origins = ENV.fetch("ALLOWED_ORIGINS", "").split(",").map(&:strip).reject(&:empty?)
+      origins.empty? ? [] : origins
+    end
+
+    origins allowed_origins
 
     resource "*",
       headers: :any,

@@ -14,9 +14,9 @@ describe('SnippetResult', () => {
 
     expect(screen.getByText('ID')).toBeInTheDocument();
     expect(screen.getByText(mockSnippet.id)).toBeInTheDocument();
-    expect(screen.getByText('Original Text')).toBeInTheDocument();
+    expect(screen.getByText('Texto')).toBeInTheDocument();
     expect(screen.getByText(mockSnippet.text)).toBeInTheDocument();
-    expect(screen.getByText('Summary')).toBeInTheDocument();
+    expect(screen.getByText('Resumo')).toBeInTheDocument();
     expect(screen.getByText(mockSnippet.summary)).toBeInTheDocument();
   });
 
@@ -28,7 +28,7 @@ describe('SnippetResult', () => {
     expect(idElement.closest('p')).toHaveClass('font-mono', 'break-all');
   });
 
-  it('should render the original text with preserved line breaks', () => {
+  it('should render the Texto with preserved line breaks', () => {
     const snippetWithNewlines: SnippetResponse = {
       ...mockSnippet,
       text: 'Linha 1\nLinha 2\nLinha 3',

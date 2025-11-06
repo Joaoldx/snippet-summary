@@ -20,7 +20,7 @@ export default function SnippetResult({ snippet }: SnippetResultProps) {
 
       <div>
         <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-          Original Text
+          Texto
         </h3>
         <p className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap">
           {snippet.text}
@@ -29,7 +29,7 @@ export default function SnippetResult({ snippet }: SnippetResultProps) {
 
       <div>
         <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-          Summary
+          Resumo
         </h3>
         <p className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap">
           {snippet.summary}

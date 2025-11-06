@@ -36,7 +36,7 @@ export default function Home() {
           {snippet && (
             <div className="w-full">
               <h2 className="text-2xl font-semibold text-black dark:text-zinc-50 mb-4">
-                Result
+                Seu resumo:
               </h2>
               <SnippetResult snippet={snippet} />
             </div>

@@ -73,9 +73,17 @@ export async function getSnippets(): Promise<SnippetResponse[]> {
     if (error instanceof ApiError) {
       throw error;
     }
+
+    if (error instanceof SyntaxError && error.message.includes('JSON')) {
+      throw new ApiError(
+        'Sem rsposta do servidor. Verifique se o backend está rodando corretamente.',
+        500
+      );
+    }
+    
     throw new ApiError(
       error instanceof Error ? error.message : 'Erro de conexão',
-      0
+      500
     );
   }
 }
